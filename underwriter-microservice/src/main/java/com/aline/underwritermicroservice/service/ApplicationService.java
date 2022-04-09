@@ -102,7 +102,7 @@ public class ApplicationService {
     @RoleIsAdmin
     public void deleteApplication(long id) {
         Application toDelete = repository.findById(id).orElseThrow(ApplicationNotFoundException::new);
-        repository.delete(toDelete); 
+        repository.delete(toDelete);
     }
 
     /**
@@ -213,8 +213,8 @@ public class ApplicationService {
                     });
 
             // Call onRespond if a responseConsumer was provided.
-            if (responseConsumer != null)
-                responseConsumer.onRespond(response);
+            // if (responseConsumer != null)
+            //     responseConsumer.onRespond(response);
 
             log.info("Accounts and members successfully created.");
             return response;
