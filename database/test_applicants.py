@@ -13,8 +13,9 @@ def setup_database():
     cur = con.cursor(dictionary=True)
     yield cur
     cur.execute("DELETE FROM applicant")
+    con.close()
 
-def test_genereate_applicant(setup_database):
+def test_generate_applicant(setup_database):
     cur = setup_database
     generate_applicant()
     cur.execute("SELECT * FROM applicant")
