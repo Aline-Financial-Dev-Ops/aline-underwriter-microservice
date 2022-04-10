@@ -3,7 +3,7 @@ import requests
 
 fake = Faker()
 
-def generate():
+def generate_applicant():
     url = "http://localhost:4200/api/applicants"
     token = login()
     headers = { "Authorization": token }
@@ -38,7 +38,7 @@ def generate():
             "mailingZipcode": fake.zipcode()
         }
         res = requests.post(url, json=data, headers=headers)
-        print(res.status_code)
+        print(res)
 
 def login():
     url = "http://localhost:4200/login"
@@ -49,4 +49,5 @@ def login():
     res = requests.post(url, json=payload)
     return res.headers["Authorization"]
 
-generate()
+if __name__ == "__main__":
+    generate_applicant()
